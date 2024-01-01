@@ -1,8 +1,9 @@
+// ====== USER PARAMS
 export type CreateUserParams = {
   clerkId: string;
   firstName: string;
   lastName: string;
-  userName: string;
+  username: string;
   email: string;
   photo: string;
 };
@@ -22,8 +23,8 @@ export type CreateEventParams = {
     description: string;
     location: string;
     imageUrl: string;
-    startDate: Date;
-    endDate: Date;
+    startDateTime: Date;
+    endDateTime: Date;
     categoryId: string;
     price: string;
     isFree: boolean;
@@ -37,11 +38,11 @@ export type UpdateEventParams = {
   event: {
     _id: string;
     title: string;
-    // imageUrl: string;
+    imageUrl: string;
     description: string;
     location: string;
-    startDate: Date;
-    endDate: Date;
+    startDateTime: Date;
+    endDateTime: Date;
     categoryId: string;
     price: string;
     isFree: boolean;

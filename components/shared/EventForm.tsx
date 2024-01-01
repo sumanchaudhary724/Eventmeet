@@ -42,8 +42,8 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     event && type === "Update"
       ? {
           ...event,
-          startDate: new Date(event.startDate),
-          endDate: new Date(event.endDate),
+          startDate: new Date(event.startDateTime),
+          endDate: new Date(event.endDateTime),
         }
       : eventDefaultValues;
   const router = useRouter();
@@ -216,7 +216,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="startDate"
+            name="startDateTime"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
@@ -250,7 +250,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 
           <FormField
             control={form.control}
-            name="endDate"
+            name="endDateTime"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
