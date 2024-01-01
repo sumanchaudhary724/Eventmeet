@@ -3,7 +3,7 @@
 import { CreateCategoryParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../mongodb/database";
-import Category from "../mongodb/database/models/category.model";
+import Category from "../mongodb/models/category.model";
 
 export const createCategory = async ({
   categoryName,

@@ -9,10 +9,11 @@ import {
 } from "@/types";
 import { connectToDatabase } from "../mongodb/database";
 import { handleError } from "../utils";
-import User from "../mongodb/database/models/user.model";
-import Event from "../mongodb/database/models/event.model";
-import Category from "../mongodb//database/models/category.model";
+import User from "../mongodb/models/user.model";
+import Event from "../mongodb/models/event.model";
+import Category from "../mongodb/models/category.model";
 import { revalidatePath } from "next/cache";
+import { error } from "console";
 
 const getCategoryByName = async (name: string) => {
   return Category.findOne({ name: { $regex: name, $options: "i" } });

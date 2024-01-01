@@ -6,9 +6,9 @@ import { handleError } from "@/lib/utils";
 
 import { CreateUserParams, UpdateUserParams } from "@/types";
 import { connectToDatabase } from "../mongodb/database";
-import User from "../mongodb/database/models/user.model";
-import Order from "../mongodb/database/models/order.model";
-import Event from "../mongodb/database/models/event.model";
+import User from "../mongodb/models/user.model";
+import Order from "../mongodb/models/order.model";
+import Event from "../mongodb/models/event.model";
 
 export async function createUser(user: CreateUserParams) {
   try {
