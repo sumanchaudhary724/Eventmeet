@@ -20,7 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Dropdown from "./Dropdown";
 import { Textarea } from "../ui/textarea";
-import { FileUploader } from "./FileUploader";
+import FileUploader from "./FileUploader";
 import ReactDatePicker from "react-datepicker";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
@@ -68,10 +68,17 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     if (type === "Create") {
       try {
         const newEvent = await createEvent({
-          event: { ...values, imageUrl: uploadedImageUrl },
+          event: {
+            ...values,
+            imageUrl: uploadedImageUrl,
+            // Use startDate and endDate instead of startDateTime and endDateTime
+            startDate: values.startDate,
+            endDate: values.endDate,
+          },
           userId,
           path: "/profile",
         });
+
         if (newEvent) {
           form.reset();
           router.push(`/events/${newEvent._id}`);
