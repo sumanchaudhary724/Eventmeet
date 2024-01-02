@@ -83,8 +83,8 @@ export type Event = {
   isFree: boolean;
   imageUrl: string;
   location: string;
-  startDateTime: Date;
-  endDateTime: Date;
+  startDate: Date;
+  endDate: Date;
   url: string;
   organizer: {
     _id: string;
