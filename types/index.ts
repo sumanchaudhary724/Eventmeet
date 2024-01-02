@@ -22,8 +22,8 @@ export type CreateEventParams = {
     description: string;
     location: string;
     imageUrl: string;
-    startDate: Date; // Corrected property name
-    endDate: Date; // Corrected property name
+    startDate: Date;
+    endDate: Date;
     categoryId: string;
     price: string;
     isFree: boolean;
@@ -83,8 +83,8 @@ export type Event = {
   isFree: boolean;
   imageUrl: string;
   location: string;
-  startDate: Date;
-  endDate: Date;
+  startDateTime: Date;
+  endDateTime: Date;
   url: string;
   organizer: {
     _id: string;
