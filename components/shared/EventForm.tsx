@@ -39,11 +39,11 @@ type EventFormProps = {
 const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const initialValues =
-    event && type === "Update"
+    type === "Update" && event
       ? {
           ...event,
-          startDateTime: new Date(event.startDateTime),
-          endDateTime: new Date(event.endDateTime),
+          startDate: new Date(event.startDate),
+          endDate: new Date(event.endDate),
         }
       : eventDefaultValues;
   const router = useRouter();
@@ -216,7 +216,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
-            name="startDateTime"
+            name="startDate"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
@@ -250,7 +250,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 
           <FormField
             control={form.control}
-            name="endDateTime"
+            name="endDate"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
