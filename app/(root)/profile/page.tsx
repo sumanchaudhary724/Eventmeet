@@ -1,7 +1,7 @@
 import Collection from "@/components/shared/Collection";
 import { Button } from "@/components/ui/button";
 import { getEventByUser } from "@/lib/actions/event.actions";
-// import { getOrdersByUser } from "@/lib/actions/order.actions";
+import { getOrdersByUser } from "@/lib/actions/order.actions";
 import { IOrder } from "@/lib/mongodb/models/order.model";
 import { SearchParamProps } from "@/types";
 import { auth } from "@clerk/nextjs";
@@ -14,9 +14,9 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
 
   const ordersPage = Number(searchParams?.ordersPage) || 1;
   const eventsPage = Number(searchParams?.eventsPage) || 1;
-  //   const orders = await getOrdersByUser({ userId, page: 1 });
+  const orders = await getOrdersByUser({ userId, page: 1 });
 
-  //   const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
+  const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
   const organizedEvents = await getEventByUser({ userId, page: eventsPage });
   return (
     <>
@@ -31,7 +31,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
       </section>
 
       <section className="wrapper my-8">
-        {/* <Collection
+        <Collection
           data={orderedEvents}
           emptyTitle="No event tickets purchased yet"
           emptyStateSubtext="No worries - plenty of exciting events to explore!"
@@ -40,7 +40,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           page={ordersPage}
           urlParamName="ordersPage"
           totalPages={1}
-        /> */}
+        />
       </section>
 
       {/* Events Organized */}
