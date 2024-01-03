@@ -39,7 +39,7 @@ type EventFormProps = {
 const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const initialValues =
-    type === "Update" && event
+    event && type === "Update"
       ? {
           ...event,
           startDate: new Date(event.startDate),
@@ -365,7 +365,14 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           />
         </div>
 
-        <Button type="submit">{type === "Create" ? "Submit" : "Update"}</Button>
+        <Button
+          type="submit"
+          size="lg"
+          disabled={form.formState.isSubmitting}
+          className="button col-span-2 w-full"
+        >
+          {form.formState.isSubmitting ? "Submitting..." : `${type} Event `}
+        </Button>
       </form>
     </Form>
   );
