@@ -9,5 +9,5 @@ const userSchema = new Schema({
   photo: { type: String, required: true },
 });
 
-const User = models.User || model("User", userSchema); //get model from mongoose or create a new one if does not exist
+const User = models.User || model("User", userSchema);
 export default User;
