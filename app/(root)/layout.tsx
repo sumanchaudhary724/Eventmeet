@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Eventmeet",
-  description: "Platform to manage Event",
+  description: "Platform to manage Events",
   icons: {
     icon: "/assets/images/logo.svg",
   },
